@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="transactionApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Transaction History</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="angular-1.8.2/angular.js"></script>
+  <script src="transactionModule.js"></script>
+</head>
+<body ng-controller="transactionCtrl">
+  <center>
+    <h2>Transaction History</h2>
+
+    <!-- Filters -->
+    <h3>Apply Filters</h3>
+    <form>
+      <label>From Date:</label>
+      <input type="date" ng-model="filters.startDate">
+
+      <label>To Date:</label>
+      <input type="date" ng-model="filters.endDate"> <br>
+
+      <label>Category:</label>
+      <input type="text" ng-model="filters.category" placeholder="e.g., Rent, Salary"> <br>
+
+      <label>Min Amount:</label>
+      <input type="number" ng-model="filters.minAmount">
+
+      <label>Max Amount:</label>
+      <input type="number" ng-model="filters.maxAmount"> <br><br>
+
+      <button type="button" ng-click="applyFilters()">Apply</button>
+      <button type="button" ng-click="resetFilters()">Reset</button>
+    </form>
+
+    <!-- Transaction Table -->
+    <table border="1" style="margin-top: 20px;">
+      <tr>
+        <th>Type</th>
+        <th>Category/Source</th>
+        <th>Amount</th>
+        <th>Date & Time</th>
+      </tr>
+      <tr ng-repeat="t in filteredTransactions">
+        <td>{{t.type}}</td>
+        <td>{{t.category || t.source}}</td>
+        <td>{{t.amount}}</td>
+        <td>{{t.createdAt | date:'dd-MM-yyyy hh:mm a'}}</td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>

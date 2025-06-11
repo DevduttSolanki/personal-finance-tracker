@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chartApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Visual Insights</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="angular-1.8.2/angular.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
+  <script src="chartModule.js"></script>
+</head>
+<body ng-controller="chartCtrl">
+  <center>
+    <h2>📊 Visual Insights</h2>
+
+    <div style="width: 500px;">
+      <h3>Expense by Category</h3>
+      <canvas id="expensePieChart"></canvas>
+    </div>
+
+    <div style="width: 500px; margin-top: 40px;">
+      <h3>Monthly Income vs Expense</h3>
+      <canvas id="incomeBarChart"></canvas>
+    </div>
+  </center>
+</body>
+</html>

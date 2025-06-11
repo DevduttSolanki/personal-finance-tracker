@@ -1,0 +1,11 @@
+# Node
+backend/node_modules/
+frontend/node_modules/
+.env
+
+# Angular build files
+frontend/dist/
+
+# Logs
+*.log
+

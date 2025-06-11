@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loginApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="angular-1.8.2/angular.js"></script>
+  <script src="loginModule.js"></script>
+</head>
+<body ng-controller="loginCtrl">
+  <center>
+    <h2>Login</h2>
+
+    <form ng-submit="loginUser()">
+      <table border="2">
+        <tr>
+          <td>Email:</td>
+          <td><input type="email" ng-model="loginData.email" placeholder="Enter Email" required></td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td><input type="password" ng-model="loginData.password" placeholder="Enter Password" required></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <button type="submit">LOGIN</button> <br>
+            <a href="forgotpassword.html" style="color: #007bff; text-decoration: underline;">Forgot Password?</a>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <br>
+    <a href="register.html">Don't have an account? Register</a>
+  </center>
+</body>
+</html>

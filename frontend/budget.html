@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="budgetApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Budgeting</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="angular-1.8.2/angular.js"></script>
+  <script src="budgetModule.js"></script>
+</head>
+<body ng-controller="budgetCtrl">
+  <center>
+    <h1>Budgeting</h1>
+
+    <!-- Set Monthly Budget -->
+    <form ng-submit="saveBudget()">
+      <label>Set Monthly Budget (₹): </label>
+      <input type="number" ng-model="monthlyBudget" required /> <br><br>
+      <button type="submit">Save</button>
+    </form>
+
+    <br>
+
+    <!-- Budget Status -->
+    <div ng-if="monthlyBudget !== null">
+      <h2>Budget vs. Actual Spending</h2>
+      <p style="font-weight: bold;"><strong>Budget:</strong> ₹{{monthlyBudget}}</p>
+      <p style="font-weight: bold;"><strong>Actual Spending:</strong> ₹{{totalExpenses}}</p>
+      <p style="font-weight: bold;" ng-if="totalExpenses <= monthlyBudget" style="color: green;">
+        ✅ You are within your budget!
+      </p>
+      <p style="font-weight: bold;" ng-if="totalExpenses > monthlyBudget" style="color: red;">
+        ❌ You have exceeded your budget by ₹{{totalExpenses - monthlyBudget}}!
+      </p>
+    </div>
+  </center>
+</body>
+</html>

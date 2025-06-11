@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="registerApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="angular-1.8.2/angular.js"></script>
+    <script src="registerModule.js"></script>
+</head>
+<body ng-controller="registerCtrl">
+  <center>
+    <h2>Registration</h2>
+    <form ng-submit="registerUser()">
+        <table border="2">
+            <tr>
+                <td>Full Name:</td>
+                <td><input type="text" ng-model="newUser.fullname" placeholder="Enter Fullname" required></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" ng-model="newUser.email" placeholder="Enter Email" required></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" ng-model="newUser.password" placeholder="Enter Password" required></td>
+            </tr>
+            <tr>
+                <td>Confirm Password:</td>
+                <td><input type="password" ng-model="confirmPassword" placeholder="Confirm Password" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color: red;" 
+                   ng-show="confirmPassword && newUser.password && newUser.password !== confirmPassword">
+                   Passwords do not match!
+                 </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="submit">REGISTER</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <a href="login.html">Already registered? Go to Login</a>
+  </center>
+</body>
+</html>

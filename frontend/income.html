@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="incomeApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Income Management</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="angular-1.8.2/angular.js"></script>
+  <script src="incomeModule.js"></script>
+</head>
+<body ng-controller="incomeCtrl">
+  <center>
+    <h2>Income Management</h2>
+
+    <form ng-submit="addOrUpdateIncome()">
+      <table border="1">
+        <tr>
+          <td>Source</td>
+          <td>
+            <select ng-model="income.source" required>
+              <option value="Salary">Salary</option>
+              <option value="Business">Business</option>
+              <option value="Freelance">Freelance</option>
+              <option value="Rental Income">Rental Income</option>
+              <option value="Interest Income">Interest Income</option>
+              <option value="Dividends">Dividends</option>
+              <option value="Government Pension">Government Pension</option>
+              <option value="Private Pension">Private Pension</option>
+              <option value="Agriculture">Agriculture</option>
+              <option value="Trading">Trading</option>
+              <option value="Tuition Income">Tuition Income</option>
+              <option value="Scholarships/Stipends">Scholarships/Stipends</option>
+              <option value="Grants/Subsidies">Grants/Subsidies</option>
+              <option value="Online Business">Online Business</option>
+              <option value="Affiliate Marketing">Affiliate Marketing</option>
+              <option value="YouTube/Content Creation">YouTube/Content Creation</option>
+              <option value="Stock Market Gains">Stock Market Gains</option>
+              <option value="Crypto Gains">Crypto Gains</option>
+              <option value="Commission">Commission</option>
+              <option value="Other">Other</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Amount</td>
+          <td><input type="number" ng-model="income.amount" required></td>
+        </tr>
+        <tr>
+          <td><button type="submit">{{editMode ? 'Update' : 'Add'}}</button></td>
+          <td><button type="button" ng-click="reset()">Clear</button></td>
+        </tr>
+      </table>
+    </form>
+
+    <h3>Your Income Records</h3>
+    <table border="1">
+      <tr>
+        <th>Source</th>
+        <th>Amount</th>
+        <th>Action</th>
+      </tr>
+      <tr ng-repeat="i in incomes">
+        <td>{{i.source}}</td>
+        <td>{{i.amount}}</td>
+        <td>
+          <button ng-click="editIncome(i)">Edit</button>
+          <button ng-click="deleteIncome(i._id)">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>
